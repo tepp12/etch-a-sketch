@@ -1,0 +1,9 @@
+#container {
+    display:flex;
+    background-color: red;
+    flex-direction: row;
+}
+
+.square {
+    background-color: black;
+}
