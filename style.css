@@ -1,9 +1,15 @@
 #container {
+    margin: auto;
+    padding: 10px;
     display:flex;
-    background-color: red;
+    background-color: rgba(255, 149, 10, 0.623);
     flex-direction: row;
+    flex-wrap: wrap;
+    width:320px;
 }
 
 .square {
+    padding: 10px;
     background-color: black;
+    flex-basis:6,25% 
 }
