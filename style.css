@@ -12,13 +12,15 @@ button {
 
 
 #container {
+    border-color: black;
+    border-width: 5px;
     margin: auto;
-    padding: 10px;
     display:flex;
     background-color: rgba(255, 149, 10, 0.623);
     flex-direction: row;
     flex-wrap: wrap;
-    width:320px;
+    width:920px;
+    height:500px;
 }
 
 .unselectable {
@@ -35,7 +37,10 @@ button {
 }
 
 .square {
-    padding: 10px;
-    background-color: black;
-    flex-basis:6,25% 
+    border-color: rgb(0, 0, 0);
+    border-width: 5px;
+    /* padding: 10px; */
+    background-color: rgb(255, 255, 255);
+    flex-grow: 1;
+    /* flex-basis: 100; */
 }

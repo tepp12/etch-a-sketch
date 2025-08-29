@@ -2,12 +2,15 @@ const container = document.querySelector("#container");
 
 const btn = document.querySelector("button");
 
-let divSize
-
 function InsertTiles(x){
     for (let i = 0; x > i; i++){
     let myDiv = document.createElement("div")
     myDiv.classList.add("square")
+
+    let divSize = 100/x
+    myDiv.style.width = `${divSize}%`
+    myDiv.style.height = `${divSize}%`
+
     container.appendChild(myDiv)
 };
 };
@@ -22,18 +25,19 @@ function AddListeners(desiredClass){
     desiredClass.forEach(el => el.addEventListener("mouseover", event =>
     {
     if(event.buttons == 1 || event.buttons == 3){
-        event.target.style.backgroundColor = "white"
+        event.target.style.backgroundColor = "black"
     }
     }
 ));
     desiredClass.forEach(el => el.addEventListener("mousedown", event => {
-        event.target.style.backgroundColor = "white"
+        event.target.style.backgroundColor = "black"
         }
     ));
 }
 
 btn.addEventListener("click", event => {
     let gridTile = +window.prompt("GIMME THE NUMBER OF SQUARES PER GRID")
+
     let divAmount = gridTile*gridTile;
     
     // add check to see if there's any children inside container, then delete
