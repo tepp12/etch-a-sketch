@@ -2,24 +2,7 @@ const container = document.querySelector("#container");
 
 const btn = document.querySelector("button");
 
-function InsertTiles(x){
-    for (let i = 0; x > i; i++){
-    let myDiv = document.createElement("div")
-    myDiv.classList.add("square")
-
-    let divSize = 100/x
-    myDiv.style.width = `${divSize}%`
-    myDiv.style.height = `${divSize}%`
-
-    container.appendChild(myDiv)
-};
-};
-
-function DeleteTiles(desiredClass){
-    desiredClass.each(function(element){
-        element.remove()
-    })
-}
+let numItems = 16;
 
 function AddListeners(desiredClass){
     desiredClass.forEach(el => el.addEventListener("mouseover", event =>
@@ -36,28 +19,40 @@ function AddListeners(desiredClass){
 }
 
 btn.addEventListener("click", event => {
-    let gridTile = +window.prompt("GIMME THE NUMBER OF SQUARES PER GRID")
+    numItems = +window.prompt("GIMME THE NUMBER OF SQUARES PER GRID")
 
-    let divAmount = gridTile*gridTile;
-    
-    // add check to see if there's any children inside container, then delete
-    //DeleteTiles(square)
-
-    if (typeof gridTile != "number"){
+    if (typeof numItems != "number"){
         alert("NOT NUMBER PLEASE INPUT ANOTHER ONE")
         return
     }
-    if (gridTile > 100){
+    if (numItems > 100){
         alert("DO YOU WANT TO LAG YOUR PC? PLEASE INPUT ANOTHER ONE")
         return
     }
 
-    if (Math.sign(gridTile) === 1){
-        InsertTiles(divAmount)
-        let square = document.querySelectorAll(".square")
+    if (Math.sign(numItems) === 1){
+        generateGrid()
+        square = document.querySelectorAll(".square")
         AddListeners(square)
+        console.log("did it")
 
     } else{
         alert("ENTER POSITIVE NUMBER, DUDE")
     }
 })
+
+function generateGrid() {
+  container.replaceChildren();
+  
+  for (let i = 1; i <= (numItems * numItems); i++) {
+    const square = document.createElement("div");       
+    square.classList.add("square")
+    container.appendChild(square);
+  }
+  
+  document.documentElement.style.setProperty("--number", numItems);
+};
+
+generateGrid();
+let square = document.querySelectorAll(".square")
+AddListeners(square)

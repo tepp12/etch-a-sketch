@@ -1,3 +1,7 @@
+:root {
+  --number:16
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -12,15 +16,10 @@ button {
 
 
 #container {
-    border-color: black;
-    border-width: 5px;
-    margin: auto;
     display:flex;
     background-color: rgba(255, 149, 10, 0.623);
-    flex-direction: row;
     flex-wrap: wrap;
     width:920px;
-    height:500px;
 }
 
 .unselectable {
@@ -37,10 +36,10 @@ button {
 }
 
 .square {
-    border-color: rgb(0, 0, 0);
-    border-width: 5px;
     /* padding: 10px; */
-    background-color: rgb(255, 255, 255);
-    flex-grow: 1;
+    outline: 1px solid #ffffff;
     /* flex-basis: 100; */
+    flex: 1;
+    min-width: calc(100% / var(--number));
+    aspect-ratio: 1 / 1;
 }
