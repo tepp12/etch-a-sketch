@@ -33,19 +33,11 @@ button {
    -moz-user-select: -moz-none;
    -khtml-user-select: none;
    -webkit-user-select: none;
-
-   /*
-     Introduced in IE 10.
-     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
-   */
    -ms-user-select: none;
    user-select: none;
 }
 
 .square {
-    /* padding: 10px; */
-    outline: 0.5px solid #000000;
-    /* flex-basis: 100; */
     flex: 1;
     min-width: calc(100% / var(--number));
     aspect-ratio: 1 / 1;
